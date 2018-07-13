@@ -2,7 +2,6 @@ class Carousel {
   constructor(element) {
     this.element = element;
     this.images = this.element.querySelectorAll(".image");
-    console.log(this.images)
     this.images = Array.from(this.images).map( image => {
       return new Image(image, this);
     });
@@ -11,7 +10,6 @@ class Carousel {
       return new Button(button, this);
     });
     this.currentImage = this.images[0];
-    
     this.init()
   }
 
