@@ -3,13 +3,14 @@ class Carousel {
     this.element = element;
     this.images = this.element.querySelectorAll(".image");
     this.images = Array.from(this.images).map( image => {
-      return new Image(image, this);
+      return new Image(image);
     });
     this.buttons = this.element.querySelectorAll("button");
     this.buttons = Array.from(this.buttons).map( button => {
       return new Button(button, this);
     });
     this.currentImage = this.images[0];
+    this.length = this.images.length-1;
     this.init()
   }
 
@@ -22,13 +23,13 @@ class Carousel {
     if (this.i > 0) {
       this.updateActive(this.images[this.i+1])
     } else {
-      this.updateActive(this.images[this.images.length-1])
+      this.updateActive(this.images[this.length])
     }
   }
 
   increaseIndex() {
     this.i = this.images.indexOf(this.currentImage)
-    if (this.i < this.images.length-1) {
+    if (this.i < this.length) {
       this.updateActive(this.images[this.i+1])
     } else {
       this.updateActive(this.images[0])
@@ -38,7 +39,7 @@ class Carousel {
   updateActive(newActive) {
     this.currentImage.deselect();
     this.currentImage = newActive;
-    this.currentImage.select()
+    this.currentImage.select();
   }
 
   getTab(data) {
