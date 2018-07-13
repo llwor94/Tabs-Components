@@ -116,11 +116,12 @@ body {
   border-radius: 10px;
   overflow: hidden;
 }
-.section .box {
+.section .image-carousel {
   padding: 40px;
 }
-.section .box .box-title {
-  font-size: 24px;
+.section .image-carousel .image {
+  display: none;
   padding-bottom: 10px;
-  font-weight: bold;
 }
+
+
